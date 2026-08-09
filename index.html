@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Convite VIP: Aniversário da Mari no Roblox!</title>
+    <title>🎉 CONVITE VIP MEGA EXPLOSIVO: Aniversário da Mari no Roblox!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #040108;
-            --purple-deep: #120324;
-            --purple-primary: #a800ff;
-            --purple-glow: #e000ff;
-            --pink-accent: #ff007f;
-            --pink-soft: #ff3399;
-            --cyan-accent: #00f0ff;
-            --gold-accent: #ffe600;
-            --lilac: #e2bbfd;
+            --bg-dark: #020005;
+            --purple-primary: #b000ff;
+            --purple-glow: #f000ff;
+            --pink-accent: #ff0055;
+            --pink-soft: #ff00a0;
+            --cyan-accent: #00f6ff;
+            --gold-accent: #ffea00;
+            --lime-accent: #00ff66;
             --white: #ffffff;
-            --glass-bg: rgba(20, 5, 38, 0.88);
-            --glass-border: rgba(255, 0, 220, 0.7);
-            --glass-glow: rgba(220, 0, 255, 0.8);
+            --glass-bg: rgba(15, 2, 30, 0.92);
         }
 
         * {
@@ -53,8 +50,8 @@
         #starfieldCanvas { z-index: 1; }
         #fireworksCanvas { z-index: 2; }
 
-        /* Elementos Flutuantes de Festa */
-        #partyElementsContainer {
+        /* Luzes Estroboscópicas / Strobe de Boate */
+        #partyLightsOverlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -62,14 +59,35 @@
             height: 100vh;
             pointer-events: none;
             z-index: 3;
+            mix-blend-mode: color-dodge;
+            opacity: 0.15;
+            animation: discoStrobe 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes discoStrobe {
+            0% { background: radial-gradient(circle, var(--pink-accent), transparent 60%); }
+            33% { background: radial-gradient(circle, var(--cyan-accent), transparent 60%); }
+            66% { background: radial-gradient(circle, var(--purple-primary), transparent 60%); }
+            100% { background: radial-gradient(circle, var(--gold-accent), transparent 60%); }
+        }
+
+        /* Elementos Flutuantes da Festa */
+        #partyElementsContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 4;
             overflow: hidden;
         }
 
         .party-element {
             position: absolute;
-            bottom: -60px;
+            bottom: -80px;
             animation: floatUp linear infinite;
-            filter: drop-shadow(0 0 16px var(--pink-accent)) drop-shadow(0 0 25px var(--cyan-accent));
+            filter: drop-shadow(0 0 20px var(--cyan-accent)) drop-shadow(0 0 30px var(--pink-soft));
             user-select: none;
         }
 
@@ -78,10 +96,10 @@
                 transform: translateY(0) rotate(0deg) scale(0.8);
                 opacity: 0;
             }
-            15% { opacity: 1; }
-            85% { opacity: 1; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% {
-                transform: translateY(-115vh) rotate(360deg) scale(1.4);
+                transform: translateY(-120vh) rotate(720deg) scale(1.6);
                 opacity: 0;
             }
         }
@@ -92,25 +110,27 @@
             top: 20px;
             right: 20px;
             z-index: 100;
-            background: linear-gradient(135deg, var(--purple-primary), var(--pink-accent));
-            border: 2px solid var(--cyan-accent);
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-primary), var(--cyan-accent));
+            background-size: 200% 200%;
+            animation: gradientShift 2s linear infinite;
+            border: 3px solid var(--white);
             color: var(--white);
-            padding: 12px 22px;
-            border-radius: 30px;
+            padding: 14px 24px;
+            border-radius: 40px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
-            font-weight: 800;
-            box-shadow: 0 0 30px var(--purple-glow);
+            font-size: 1rem;
+            font-weight: 900;
+            box-shadow: 0 0 35px var(--pink-soft), 0 0 50px var(--cyan-accent);
             transition: all 0.3s ease;
             text-transform: uppercase;
         }
 
         .music-floating-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 40px var(--cyan-accent);
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 0 60px var(--gold-accent);
         }
 
         /* Container Principal */
@@ -121,7 +141,7 @@
             min-height: 100vh;
         }
 
-        /* --- TELA INICIAL --- */
+        /* --- TELA INICIAL MEGA IMPACTANTE --- */
         #screen-welcome {
             min-height: 100vh;
             display: flex;
@@ -135,78 +155,92 @@
 
         .welcome-card {
             background: var(--glass-bg);
-            border: 3px solid var(--glass-border);
-            box-shadow: 0 0 80px var(--glass-glow), inset 0 0 40px rgba(255, 0, 127, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 28px;
-            padding: 50px 25px;
-            max-width: 540px;
+            border: 4px solid var(--cyan-accent);
+            box-shadow: 0 0 100px var(--purple-glow), inset 0 0 50px var(--pink-accent);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 35px;
+            padding: 55px 28px;
+            max-width: 580px;
             width: 100%;
-            animation: fadeInUp 1s ease-out;
+            animation: pulseCardGlow 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseCardGlow {
+            0% { border-color: var(--cyan-accent); box-shadow: 0 0 80px var(--purple-glow), inset 0 0 40px var(--pink-accent); }
+            50% { border-color: var(--pink-soft); box-shadow: 0 0 120px var(--cyan-accent), inset 0 0 60px var(--purple-primary); }
+            100% { border-color: var(--gold-accent); box-shadow: 0 0 100px var(--pink-soft), inset 0 0 50px var(--lime-accent); }
         }
 
         .welcome-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #ff0055, #ff00cc, #a800ff);
-            color: var(--white);
-            padding: 10px 22px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--gold-accent), var(--pink-accent), var(--purple-primary));
+            background-size: 200% 200%;
+            animation: gradientShift 2s linear infinite;
+            color: #000000;
+            padding: 12px 26px;
+            border-radius: 30px;
             font-weight: 900;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 85, 0.9);
+            margin-bottom: 22px;
+            box-shadow: 0 0 35px var(--gold-accent);
             text-transform: uppercase;
             border: 2px solid var(--white);
         }
 
         .title-main {
             font-family: 'Fredoka', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--white);
-            text-shadow: 0 0 30px var(--purple-glow), 0 0 50px var(--pink-accent), 0 0 15px var(--cyan-accent);
-            margin-bottom: 18px;
-            line-height: 1.1;
+            text-shadow: 0 0 30px var(--cyan-accent), 0 0 60px var(--pink-soft), 0 0 90px var(--purple-glow);
+            margin-bottom: 20px;
+            line-height: 1.05;
+            animation: textNeonPulse 1.5s infinite alternate;
+        }
+
+        @keyframes textNeonPulse {
+            0% { text-shadow: 0 0 30px var(--cyan-accent), 0 0 60px var(--pink-soft); }
+            100% { text-shadow: 0 0 40px var(--lime-accent), 0 0 80px var(--purple-glow), 0 0 100px var(--gold-accent); }
         }
 
         .text-welcome {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: #ffffff;
             line-height: 1.6;
-            margin-bottom: 35px;
-            font-weight: 700;
-            text-shadow: 0 0 15px var(--purple-glow);
+            margin-bottom: 40px;
+            font-weight: 800;
+            text-shadow: 0 0 20px var(--purple-glow);
         }
 
         .welcome-actions {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
             align-items: center;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--pink-accent), var(--purple-primary), var(--cyan-accent));
+            background: linear-gradient(135deg, var(--cyan-accent), var(--pink-soft), var(--gold-accent));
             background-size: 200% 200%;
-            animation: gradientShift 2.5s ease infinite;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 18px 38px;
-            font-size: 1.2rem;
+            animation: gradientShift 1.8s linear infinite;
+            color: #000000;
+            border: 3px solid var(--white);
+            padding: 20px 42px;
+            font-size: 1.3rem;
             font-weight: 900;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.9);
+            box-shadow: 0 0 50px var(--cyan-accent), 0 0 80px var(--pink-soft);
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
             justify-content: center;
-            max-width: 320px;
+            max-width: 340px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         @keyframes gradientShift {
@@ -216,42 +250,44 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 0 55px var(--cyan-accent);
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 0 90px var(--gold-accent), 0 0 120px var(--lime-accent);
         }
 
         .btn-music-init {
-            background: rgba(168, 0, 255, 0.4);
-            border: 2px solid var(--purple-glow);
+            background: rgba(176, 0, 255, 0.5);
+            border: 3px solid var(--pink-soft);
             color: var(--white);
-            padding: 14px 30px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 900;
+            border-radius: 60px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
             justify-content: center;
-            max-width: 320px;
-            box-shadow: 0 0 25px rgba(224, 0, 255, 0.6);
+            max-width: 340px;
+            box-shadow: 0 0 35px var(--purple-glow);
+            text-transform: uppercase;
         }
 
         .btn-music-init:hover {
-            background: rgba(255, 0, 127, 0.6);
-            border-color: var(--pink-accent);
-            box-shadow: 0 0 35px var(--pink-accent);
+            background: rgba(255, 0, 85, 0.8);
+            border-color: var(--cyan-accent);
+            box-shadow: 0 0 50px var(--cyan-accent);
+            transform: scale(1.05);
         }
 
-        /* --- CONTEÚDO PRINCIPAL --- */
+        /* --- CONTEÚDO PRINCIPAL DO CONVITE --- */
         #main-content {
             display: none;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            padding: 40px 20px 80px 20px;
-            max-width: 760px;
+            padding: 40px 20px 100px 20px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -262,70 +298,71 @@
 
         .section-card {
             background: var(--glass-bg);
-            border: 2px solid var(--glass-border);
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9), 0 0 40px var(--glass-glow);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-radius: 24px;
-            padding: 45px 30px;
-            margin-bottom: 40px;
+            border: 3px solid var(--pink-soft);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.95), 0 0 60px var(--purple-glow);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 30px;
+            padding: 50px 32px;
+            margin-bottom: 45px;
             text-align: center;
             position: relative;
+            animation: pulseCardGlow 3s infinite alternate ease-in-out;
         }
 
         .section-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 2.3rem;
-            color: #ff33a8;
-            text-shadow: 0 0 20px var(--pink-accent), 0 0 40px var(--purple-glow);
-            margin-bottom: 25px;
+            font-size: 2.6rem;
+            color: var(--gold-accent);
+            text-shadow: 0 0 25px var(--gold-accent), 0 0 50px var(--pink-accent), 0 0 75px var(--cyan-accent);
+            margin-bottom: 28px;
             position: relative;
             display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 85%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--cyan-accent), var(--pink-accent), transparent);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-            box-shadow: 0 0 15px var(--cyan-accent);
+            width: 90%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--cyan-accent), var(--gold-accent), var(--pink-accent), transparent);
+            margin: 12px auto 0 auto;
+            border-radius: 3px;
+            box-shadow: 0 0 25px var(--cyan-accent);
         }
 
         .party-intro-text {
-            font-size: 1.3rem;
-            line-height: 2;
+            font-size: 1.38rem;
+            line-height: 2.1;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
         }
 
         .party-intro-text strong {
             color: var(--cyan-accent);
             font-weight: 900;
-            text-shadow: 0 0 15px var(--cyan-accent);
+            text-shadow: 0 0 20px var(--cyan-accent), 0 0 40px var(--purple-glow);
         }
 
         /* Contagem Regressiva */
         .countdown-container {
-            background: rgba(5, 1, 12, 0.95);
-            border: 2px solid var(--pink-accent);
-            border-radius: 22px;
-            padding: 30px 15px;
-            margin: 20px 0;
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.5), inset 0 0 25px rgba(255, 0, 127, 0.3);
+            background: rgba(3, 0, 8, 0.95);
+            border: 3px solid var(--cyan-accent);
+            border-radius: 26px;
+            padding: 35px 20px;
+            margin: 25px 0;
+            box-shadow: 0 0 60px var(--cyan-accent), inset 0 0 35px var(--pink-accent);
         }
 
         .timer-boxes {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .time-box {
@@ -336,123 +373,121 @@
 
         .time-number {
             font-family: 'Fredoka', sans-serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: #ffffff;
-            background: linear-gradient(135deg, rgba(168, 0, 255, 0.6), rgba(255, 0, 127, 0.6));
-            border: 2px solid var(--cyan-accent);
-            border-radius: 18px;
-            width: 85px;
-            height: 80px;
+            background: linear-gradient(135deg, rgba(176, 0, 255, 0.8), rgba(255, 0, 85, 0.8));
+            border: 3px solid var(--gold-accent);
+            border-radius: 22px;
+            width: 95px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-shadow: 0 0 20px var(--cyan-accent);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 25px var(--gold-accent);
+            box-shadow: 0 0 40px var(--pink-soft);
         }
 
         .time-label {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--cyan-accent);
-            margin-top: 10px;
-            font-weight: 800;
+            margin-top: 12px;
+            font-weight: 900;
+            text-shadow: 0 0 10px var(--cyan-accent);
         }
 
         .party-now-msg {
             display: none;
             font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #00f0ff;
-            text-shadow: 0 0 25px #00f0ff, 0 0 50px #ff007f;
-            animation: pulseText 0.8s infinite alternate;
-            margin-top: 10px;
+            color: var(--gold-accent);
+            text-shadow: 0 0 30px var(--gold-accent), 0 0 60px #ff0055, 0 0 90px #00f6ff;
+            animation: pulseText 0.6s infinite alternate;
+            margin-top: 15px;
         }
 
         @keyframes pulseText {
             0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
+            100% { transform: scale(1.12); }
         }
 
         /* Botões do Roblox */
         .roblox-btn {
-            background: linear-gradient(135deg, #00f0ff, #a800ff, #ff007f);
-            background-size: 200% 200%;
-            animation: gradientShift 2.5s ease infinite;
-            color: var(--white);
+            background: linear-gradient(135deg, var(--gold-accent), var(--cyan-accent), var(--pink-accent), var(--lime-accent));
+            background-size: 300% 300%;
+            animation: gradientShift 2s linear infinite;
+            color: #000000;
             text-decoration: none;
-            padding: 20px 40px;
-            border-radius: 50px;
+            padding: 22px 46px;
+            border-radius: 60px;
             font-weight: 900;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            margin-top: 25px;
-            border: 2px solid var(--white);
-            box-shadow: 0 0 45px rgba(0, 240, 255, 0.9);
+            gap: 14px;
+            margin-top: 30px;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 60px var(--cyan-accent), 0 0 90px var(--pink-soft);
             transition: all 0.3s ease;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .roblox-btn:hover {
-            transform: scale(1.07);
-            box-shadow: 0 0 60px var(--pink-accent);
+            transform: scale(1.1) rotate(1deg);
+            box-shadow: 0 0 100px var(--gold-accent), 0 0 130px var(--lime-accent);
         }
 
         .alert-box {
-            background: rgba(255, 0, 127, 0.3);
-            border: 2px dashed var(--pink-accent);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin-top: 25px;
-            font-size: 1.05rem;
+            background: rgba(255, 0, 85, 0.35);
+            border: 3px dashed var(--gold-accent);
+            border-radius: 18px;
+            padding: 18px 24px;
+            margin-top: 30px;
+            font-size: 1.15rem;
             color: #ffffff;
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.8);
+            font-weight: 800;
+            text-shadow: 0 0 15px var(--gold-accent);
+            box-shadow: 0 0 30px rgba(255, 234, 0, 0.4);
         }
 
         /* Spotify Player */
         .spotify-box {
-            margin-top: 20px;
-            border-radius: 18px;
+            margin-top: 25px;
+            border-radius: 22px;
             overflow: hidden;
-            border: 2px solid var(--purple-glow);
-            box-shadow: 0 0 35px rgba(168, 0, 255, 0.7);
+            border: 3px solid var(--cyan-accent);
+            box-shadow: 0 0 50px var(--purple-glow);
         }
 
         .final-signature {
             font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
-            color: var(--cyan-accent);
-            margin-top: 20px;
-            text-shadow: 0 0 30px var(--cyan-accent), 0 0 50px var(--purple-glow);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            font-size: 2.8rem;
+            color: var(--gold-accent);
+            margin-top: 25px;
+            text-shadow: 0 0 35px var(--gold-accent), 0 0 70px var(--pink-accent);
         }
 
         @media (max-width: 480px) {
-            .title-main { font-size: 2.8rem; }
-            .section-card { padding: 30px 18px; }
-            .party-intro-text { font-size: 1.15rem; line-height: 1.8; }
-            .time-number { width: 68px; height: 65px; font-size: 2.2rem; }
-            .time-label { font-size: 0.7rem; }
-            .party-now-msg { font-size: 1.8rem; }
-            .roblox-btn { width: 100%; justify-content: center; font-size: 1.05rem; padding: 18px 20px; }
+            .title-main { font-size: 3rem; }
+            .section-card { padding: 32px 18px; }
+            .party-intro-text { font-size: 1.18rem; line-height: 1.8; }
+            .time-number { width: 72px; height: 70px; font-size: 2.3rem; }
+            .time-label { font-size: 0.75rem; }
+            .party-now-msg { font-size: 2rem; }
+            .roblox-btn { width: 100%; justify-content: center; font-size: 1.1rem; padding: 18px 16px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Canvases de Fundo -->
+    <!-- Canvases & Efeitos de Fundo -->
     <canvas id="starfieldCanvas"></canvas>
     <canvas id="fireworksCanvas"></canvas>
+    <div id="partyLightsOverlay"></div>
     <div id="partyElementsContainer"></div>
 
     <audio id="bgMusic" loop preload="auto">
@@ -484,7 +519,7 @@
             </div>
         </section>
 
-        <!-- CONTEÚDO PRINCIPAL -->
+        <!-- CONTEÚDO PRINCIPAL DO CONVITE -->
         <main id="main-content">
 
             <!-- SOBRE A FESTA -->
@@ -526,14 +561,14 @@
             <!-- ENTRAR NA FESTA -->
             <section class="section-card">
                 <h2 class="section-title">🎮 PRONTO PARA A FESTA?</h2>
-                <p style="color: #ffffff; font-size: 1.25rem; line-height: 1.8; margin-bottom: 15px; font-weight: 800; text-shadow: 0 0 12px var(--cyan-accent);">
+                <p style="color: #ffffff; font-size: 1.35rem; line-height: 1.8; margin-bottom: 15px; font-weight: 900; text-shadow: 0 0 15px var(--gold-accent);">
                     Entre no Roblox e participe da comemoração!
                 </p>
 
-                <p style="color: var(--lilac); font-size: 1.2rem; line-height: 1.9; margin-bottom: 20px; font-weight: 700;">
-                    📍 Local: <strong style="color: var(--cyan-accent);">Boate</strong><br>
-                    🔒 Servidor: <strong style="color: var(--cyan-accent);">Privado</strong><br>
-                    ⏰ Horário: <strong style="color: var(--pink-soft);">21:30</strong>
+                <p style="color: #ffffff; font-size: 1.28rem; line-height: 2; margin-bottom: 20px; font-weight: 800;">
+                    📍 Local: <strong style="color: var(--cyan-accent); text-shadow: 0 0 15px var(--cyan-accent);">Boate</strong><br>
+                    🔒 Servidor: <strong style="color: var(--lime-accent); text-shadow: 0 0 15px var(--lime-accent);">Privado</strong><br>
+                    ⏰ Horário: <strong style="color: var(--gold-accent); text-shadow: 0 0 15px var(--gold-accent);">21:30</strong>
                 </p>
 
                 <a id="robloxLinkBtn" href="#" target="_blank" class="roblox-btn">
@@ -548,10 +583,10 @@
             <!-- TRILHA SONORA -->
             <section class="section-card">
                 <h2 class="section-title">🎵 TRILHA SONORA DA FESTA</h2>
-                <p style="color: #ffffff; font-size: 1.05rem; margin-bottom: 15px; font-weight: 700;">
+                <p style="color: #ffffff; font-size: 1.15rem; margin-bottom: 15px; font-weight: 800; text-shadow: 0 0 10px var(--cyan-accent);">
                     Ouça a música da festa enquanto visualiza o convite:
                 </p>
-                
+
                 <div class="spotify-box">
                     <iframe id="spotifyPlayer" src="" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
@@ -560,11 +595,11 @@
             <!-- FINAL DO CONVITE -->
             <section class="section-card">
                 <h2 class="section-title">🎂 ESPERAMOS VOCÊ!</h2>
-                <p style="font-size: 1.3rem; color: #ffffff; line-height: 1.8; margin-bottom: 20px; font-weight: 700;">
+                <p style="font-size: 1.35rem; color: #ffffff; line-height: 1.8; margin-bottom: 20px; font-weight: 800;">
                     Venha fazer parte dessa comemoração especial e celebrar o aniversário da Mari com a gente! ❤️
                 </p>
 
-                <p style="font-size: 1.2rem; color: var(--cyan-accent); line-height: 1.8; font-weight: 900; text-shadow: 0 0 15px var(--cyan-accent);">
+                <p style="font-size: 1.25rem; color: var(--gold-accent); line-height: 1.8; font-weight: 900; text-shadow: 0 0 20px var(--gold-accent);">
                     📍 Boate • 🎮 Roblox • 🔒 Servidor Privado • ⏰ 21:30
                 </p>
 
@@ -598,10 +633,10 @@
             const mainContent = document.getElementById('main-content');
 
             tryPlayAudio();
-            triggerFireworkBurst(12); // Disparo inicial massivo de fogos
+            triggerMegaFireworkBurst(20);
 
             screenWelcome.style.opacity = '0';
-            screenWelcome.style.transform = 'scale(0.95)';
+            screenWelcome.style.transform = 'scale(0.9)';
             setTimeout(() => {
                 screenWelcome.style.display = 'none';
                 mainContent.classList.add('visible');
@@ -686,9 +721,9 @@
                 if (!partyStarted) {
                     partyStarted = true;
                     setInterval(() => {
-                        triggerFireworkBurst(10);
+                        triggerMegaFireworkBurst(12);
                         createPartyElement();
-                    }, 400);
+                    }, 300);
                 }
             } else {
                 const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -706,7 +741,7 @@
 
 
         /* =========================================================
-           5. CANVAS DE ESTRELAS
+           5. CANVAS DE ESTRELAS HYPER BRILHANTES
         ========================================================= */
         const starCanvas = document.getElementById('starfieldCanvas');
         const starCtx = starCanvas.getContext('2d');
@@ -720,14 +755,14 @@
 
         function initStars() {
             stars = [];
-            const count = Math.floor((starCanvas.width * starCanvas.height) / 1500);
+            const count = Math.floor((starCanvas.width * starCanvas.height) / 1200);
             for (let i = 0; i < count; i++) {
                 stars.push({
                     x: Math.random() * starCanvas.width,
                     y: Math.random() * starCanvas.height,
-                    radius: Math.random() * 2.2 + 0.5,
+                    radius: Math.random() * 2.8 + 0.8,
                     alpha: Math.random(),
-                    speed: Math.random() * 0.04 + 0.015
+                    speed: Math.random() * 0.05 + 0.02
                 });
             }
         }
@@ -759,26 +794,26 @@
            6. ELEMENTOS FLUTUANTES DA FESTA
         ========================================================= */
         const partyContainer = document.getElementById('partyElementsContainer');
-        const partyIcons = ['🎈', '🎉', '✨', '💖', '💜', '🎊', '🎆', '⚡', '🌟', '💖'];
+        const partyIcons = ['🎈', '🎉', '✨', '💖', '💜', '🎊', '🎆', '⚡', '🌟', '💖', '👑', '💎'];
 
         function createPartyElement() {
             const el = document.createElement('div');
             el.className = 'party-element';
             el.textContent = partyIcons[Math.floor(Math.random() * partyIcons.length)];
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.animationDuration = (Math.random() * 3 + 3.5) + 's';
-            el.style.fontSize = (Math.random() * 20 + 22) + 'px';
+            el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            el.style.fontSize = (Math.random() * 24 + 24) + 'px';
 
             partyContainer.appendChild(el);
 
-            setTimeout(() => { el.remove(); }, 7000);
+            setTimeout(() => { el.remove(); }, 6000);
         }
 
-        setInterval(createPartyElement, 600);
+        setInterval(createPartyElement, 400);
 
 
         /* =========================================================
-           7. SISTEMA DE FOGOS DE ARTIFÍCIO SUPER LUMINOSO
+           7. SISTEMA DE FOGOS DE ARTIFÍCIO SUPER EXPLOSIVO
         ========================================================= */
         const fwCanvas = document.getElementById('fireworksCanvas');
         const fwCtx = fwCanvas.getContext('2d');
@@ -797,7 +832,7 @@
                 this.targetX = targetX;
                 this.targetY = targetY;
                 this.color = color;
-                this.speed = 6;
+                this.speed = 8;
                 this.angle = Math.atan2(targetY - startY, targetX - startX);
                 this.velocity = {
                     x: Math.cos(this.angle) * this.speed,
@@ -810,7 +845,7 @@
                 this.y += this.velocity.y;
                 const distLeft = Math.hypot(this.x - this.targetX, this.y - this.targetY);
 
-                if (distLeft < 10) {
+                if (distLeft < 12) {
                     createParticles(this.targetX, this.targetY, this.color);
                     fireworks.splice(index, 1);
                 }
@@ -819,9 +854,9 @@
             draw() {
                 fwCtx.save();
                 fwCtx.beginPath();
-                fwCtx.arc(this.x, this.y, 3.5, 0, Math.PI * 2);
+                fwCtx.arc(this.x, this.y, 4, 0, Math.PI * 2);
                 fwCtx.fillStyle = this.color;
-                fwCtx.shadowBlur = 20;
+                fwCtx.shadowBlur = 30;
                 fwCtx.shadowColor = this.color;
                 fwCtx.fill();
                 fwCtx.restore();
@@ -833,16 +868,16 @@
                 this.x = x;
                 this.y = y;
                 this.color = color;
-                this.radius = Math.random() * 4 + 1.5;
+                this.radius = Math.random() * 4.5 + 2;
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * (partyStarted ? 11 : 8) + 2;
+                const speed = Math.random() * (partyStarted ? 14 : 10) + 2.5;
                 this.velocity = {
                     x: Math.cos(angle) * speed,
                     y: Math.sin(angle) * speed
                 };
                 this.alpha = 1;
-                this.friction = 0.95;
-                this.gravity = 0.08;
+                this.friction = 0.94;
+                this.gravity = 0.09;
             }
 
             update(index) {
@@ -864,17 +899,17 @@
                 fwCtx.beginPath();
                 fwCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 fwCtx.fillStyle = this.color;
-                fwCtx.shadowBlur = 25;
+                fwCtx.shadowBlur = 35;
                 fwCtx.shadowColor = this.color;
                 fwCtx.fill();
                 fwCtx.restore();
             }
         }
 
-        const fwColors = ['#a800ff', '#e000ff', '#ff007f', '#ff3399', '#00f0ff', '#ffe600', '#ffffff'];
+        const fwColors = ['#b000ff', '#f000ff', '#ff0055', '#ff00a0', '#00f6ff', '#ffea00', '#00ff66', '#ffffff'];
 
         function createParticles(x, y, color) {
-            const count = Math.floor(Math.random() * 40 + 70); // Mais partículas por explosão
+            const count = Math.floor(Math.random() * 50 + 90);
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle(x, y, color));
             }
@@ -883,21 +918,21 @@
         function launchRandomFirework() {
             const startX = Math.random() * fwCanvas.width;
             const startY = fwCanvas.height;
-            const targetX = Math.random() * (fwCanvas.width * 0.9) + (fwCanvas.width * 0.05);
-            const targetY = Math.random() * (fwCanvas.height * 0.55);
+            const targetX = Math.random() * (fwCanvas.width * 0.92) + (fwCanvas.width * 0.04);
+            const targetY = Math.random() * (fwCanvas.height * 0.6);
             const color = fwColors[Math.floor(Math.random() * fwColors.length)];
 
             fireworks.push(new Firework(startX, startY, targetX, targetY, color));
         }
 
-        function triggerFireworkBurst(amount = 6) {
+        function triggerMegaFireworkBurst(amount = 8) {
             for (let i = 0; i < amount; i++) {
-                setTimeout(launchRandomFirework, i * 100);
+                setTimeout(launchRandomFirework, i * 70);
             }
         }
 
         function animateFireworks() {
-            fwCtx.fillStyle = 'rgba(4, 1, 8, 0.25)';
+            fwCtx.fillStyle = 'rgba(2, 0, 5, 0.22)';
             fwCtx.fillRect(0, 0, fwCanvas.width, fwCanvas.height);
 
             fireworks.forEach((fw, index) => {
@@ -917,13 +952,14 @@
         resizeFwCanvas();
         animateFireworks();
 
-        // Rajadas contínuas e frequentes de fogos de artifício
+        // Disparos ininterruptos em múltiplos pontos da tela
         setInterval(() => {
             launchRandomFirework();
-            if (Math.random() < 0.6) {
-                setTimeout(launchRandomFirework, 150);
+            setTimeout(launchRandomFirework, 100);
+            if (Math.random() < 0.7) {
+                setTimeout(launchRandomFirework, 200);
             }
-        }, 500);
+        }, 320);
     </script>
 </body>
 </html>

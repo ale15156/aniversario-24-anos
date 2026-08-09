@@ -285,56 +285,11 @@
         }
 
         .party-intro-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.95;
             color: #f3e8ff;
-            margin-bottom: 25px;
             font-weight: 500;
-        }
-
-        /* Grid de Cards de Informações */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin: 20px 0;
-        }
-
-        .info-card {
-            background: rgba(138, 43, 226, 0.15);
-            border: 1px solid rgba(176, 82, 255, 0.3);
-            border-radius: 18px;
-            padding: 18px 12px;
             text-align: center;
-            backdrop-filter: blur(6px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--pink-soft);
-            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.2);
-        }
-
-        .info-card .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .info-card .card-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--lilac);
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
-
-        .info-card .card-value {
-            font-size: 1.2rem;
-            color: var(--white);
-            font-weight: 800;
         }
 
         /* Contagem Regressiva */
@@ -461,7 +416,6 @@
         @media (max-width: 480px) {
             .title-main { font-size: 2.6rem; }
             .section-card { padding: 25px 16px; }
-            .info-grid { grid-template-columns: 1fr; }
             .time-number { width: 62px; height: 60px; font-size: 1.9rem; }
             .time-label { font-size: 0.65rem; }
             .party-now-msg { font-size: 1.7rem; }
@@ -476,7 +430,7 @@
     <canvas id="fireworksCanvas"></canvas>
     <div id="partyElementsContainer"></div>
 
-    <!-- Elemento de Áudio Opcional (Direct MP3) -->
+    <!-- Elemento de Áudio Opcional -->
     <audio id="bgMusic" loop preload="auto">
         <source src="" type="audio/mpeg">
     </audio>
@@ -510,48 +464,14 @@
         <!-- CONTEÚDO PRINCIPAL DO CONVITE -->
         <main id="main-content">
 
-            <!-- SOBRE A FESTA -->
+            <!-- SOBRE A FESTA (TEXTO AMPLIADO E SEM CARDS) -->
             <section class="section-card">
                 <h2 class="section-title">🎉 SOBRE A FESTA</h2>
                 <p class="party-intro-text">
-                    Você está convidado para comemorar o aniversário da Mari! 🎂<br><br>
-                    A comemoração acontecerá dentro do Roblox, em um servidor privado, no local <strong>Boate</strong>.<br><br>
-                    Prepare-se para uma noite de diversão, comemoração e um show especial de fogos de artifício! 🎆
+                    Você está super convidado(a) para celebrar conosco o aniversário da <strong>Mari</strong>! 🎂<br><br>
+                    Preparamos uma noite especial recheada de momentos inesquecíveis, muita diversão, música boa e ótimas risadas dentro do <strong>Roblox</strong>. Nosso ponto de encontro será em um servidor privado exclusivo, no local <strong>Boate</strong>, a partir das <strong>21:30</strong>.<br><br>
+                    Traga seu melhor avatar, convide sua animação e venha curtir essa comemoração imperdível com a gente. Para fechar a noite com chave de ouro, teremos um <strong>espetacular show de fogos de artifício</strong>! 🎆
                 </p>
-
-                <!-- CARDS DE INFORMAÇÕES -->
-                <div class="info-grid">
-                    <div class="info-card">
-                        <span class="card-icon">🎂</span>
-                        <div class="card-label">ANIVERSÁRIO</div>
-                        <div class="card-value">Mari</div>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon">🎮</span>
-                        <div class="card-label">JOGO</div>
-                        <div class="card-value">Roblox</div>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon">🔒</span>
-                        <div class="card-label">SERVIDOR</div>
-                        <div class="card-value">Privado</div>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon">📍</span>
-                        <div class="card-label">LOCAL</div>
-                        <div class="card-value">Boate</div>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon">⏰</span>
-                        <div class="card-label">HORÁRIO</div>
-                        <div class="card-value">21:30</div>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon">🎆</span>
-                        <div class="card-label">ATRAÇÃO</div>
-                        <div class="card-value">Show de fogos</div>
-                    </div>
-                </div>
             </section>
 
             <!-- CONTAGEM REGRESSIVA -->
@@ -580,14 +500,14 @@
                 </div>
             </section>
 
-            <!-- ENTRAR NA FESTA (LINK DIRETO DO ROBLOX) -->
+            <!-- ENTRAR NA FESTA -->
             <section class="section-card">
                 <h2 class="section-title">🎮 PRONTO PARA A FESTA?</h2>
                 <p style="color: #e2d2f5; font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; font-weight: 600;">
                     Entre no Roblox e participe da comemoração!
                 </p>
 
-                <p style="color: var(--lilac); font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+                <p style="color: var(--lilac); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
                     📍 Local: <strong>Boate</strong><br>
                     🔒 Servidor: <strong>Privado</strong><br>
                     ⏰ Horário: <strong>21:30</strong>
@@ -602,7 +522,7 @@
                 </div>
             </section>
 
-            <!-- TRILHA SONORA (SPOTIFY EMBED) -->
+            <!-- TRILHA SONORA (SPOTIFY) -->
             <section class="section-card">
                 <h2 class="section-title">🎵 TRILHA SONORA DA FESTA</h2>
                 <p style="color: #c9b3e6; font-size: 0.95rem; margin-bottom: 15px;">
@@ -726,14 +646,14 @@
 
 
         /* =========================================================
-           4. CONTAGEM REGRESSIVA ATÉ ÀS 21:30 (HORÁRIO LOCAL)
+           4. CONTAGEM REGRESSIVA ATÉ ÀS 21:30
         ========================================================= */
         let partyStarted = false;
 
         function updateCountdown() {
             const now = new Date();
             const target = new Date();
-            target.setHours(21, 30, 0, 0); // Define 21:30 de hoje
+            target.setHours(21, 30, 0, 0);
 
             const diff = target - now;
 
@@ -741,13 +661,11 @@
             const partyNowMsg = document.getElementById('partyNowMsg');
 
             if (diff <= 0) {
-                // Chegou às 21:30 ou já passou
                 timerBoxes.style.display = 'none';
                 partyNowMsg.style.display = 'block';
 
                 if (!partyStarted) {
                     partyStarted = true;
-                    // Dispara show maciço de fogos de artifício
                     setInterval(() => {
                         triggerFireworkBurst(6);
                         createPartyElement();
@@ -769,7 +687,7 @@
 
 
         /* =========================================================
-           5. CANVAS DE ESTRELAS E BRILHOS
+           5. CANVAS DE ESTRELAS
         ========================================================= */
         const starCanvas = document.getElementById('starfieldCanvas');
         const starCtx = starCanvas.getContext('2d');
@@ -819,7 +737,7 @@
 
 
         /* =========================================================
-           6. ELEMENTOS FLUTUANTES (CONFETES, BALÕES, CORAÇÕES)
+           6. ELEMENTOS FLUTUANTES (CONFETES, BALÕES)
         ========================================================= */
         const partyContainer = document.getElementById('partyElementsContainer');
         const partyIcons = ['🎈', '🎉', '✨', '💖', '💜', '🎊'];
@@ -841,7 +759,7 @@
 
 
         /* =========================================================
-           7. SHOW DE FOGOS DE ARTIFÍCIO EM CANVAS
+           7. FOGOS DE ARTIFÍCIO EM CANVAS
         ========================================================= */
         const fwCanvas = document.getElementById('fireworksCanvas');
         const fwCtx = fwCanvas.getContext('2d');
@@ -976,7 +894,6 @@
         resizeFwCanvas();
         animateFireworks();
 
-        // Lançamento contínuo de fogos
         setInterval(() => {
             if (partyStarted || Math.random() < 0.5) {
                 launchRandomFirework();

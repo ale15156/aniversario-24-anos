@@ -182,29 +182,80 @@ E escolheria você em todos os futuros que eu pudesse imaginar.
 Feliz aniversário, meu amor. ❤️
 
 Eu te amo.`;
-</script>
 
-const el=document.getElementById('letter'); let i=0;
-function type(){
- if(i<text.length){el.textContent+=text[i++];setTimeout(type,7);}
+
+/* =========================
+   CARTA COM EFEITO DE DIGITAÇÃO
+   ========================= */
+
+const el = document.getElementById('letter');
+
+let i = 0;
+
+function type() {
+    if (i < text.length) {
+        el.textContent += text[i];
+        i++;
+
+        setTimeout(type, 7);
+    }
 }
+
 type();
 
-function heart(){
- const h=document.createElement('div');h.className='float';
- h.textContent=['💜','❤️','💗','♡','🐾','✨'][Math.floor(Math.random()*6)];
- h.style.left=Math.random()*100+'vw';
- h.style.fontSize=(13+Math.random()*21)+'px';
- h.style.animationDuration=(6+Math.random()*7)+'s';
- document.getElementById('hearts').appendChild(h);
- setTimeout(()=>h.remove(),14000);
-}
-setInterval(heart,380);
 
-function reveal(){
- document.getElementById('secret').style.display='block';
- for(let n=0;n<30;n++)setTimeout(heart,n*35);
+/* =========================
+   CORAÇÕES E ELEMENTOS FLUTUANTES
+   ========================= */
+
+function heart() {
+    const h = document.createElement('div');
+
+    h.className = 'float';
+
+    h.textContent = [
+        '💜',
+        '❤️',
+        '💗',
+        '♡',
+        '🐾',
+        '✨'
+    ][Math.floor(Math.random() * 6)];
+
+    h.style.left = Math.random() * 100 + 'vw';
+
+    h.style.fontSize =
+        (13 + Math.random() * 21) + 'px';
+
+    h.style.animationDuration =
+        (6 + Math.random() * 7) + 's';
+
+    document.getElementById('hearts').appendChild(h);
+
+    setTimeout(() => {
+        h.remove();
+    }, 14000);
+}
+
+setInterval(heart, 380);
+
+
+/* =========================
+   REVELAR MENSAGEM SECRETA
+   ========================= */
+
+function reveal() {
+    const secret = document.getElementById('secret');
+
+    if (secret) {
+        secret.style.display = 'block';
+    }
+
+    for (let n = 0; n < 30; n++) {
+        setTimeout(heart, n * 35);
+    }
 }
 </script>
+
 </body>
 </html>
